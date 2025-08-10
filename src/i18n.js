@@ -64,6 +64,17 @@ const en = {
     aiThinking: 'AI is thinking...',
     aiStatus: 'AI is thinking of a word...',
     
+    // AI difficulty levels
+    aiDifficulty: 'AI Difficulty',
+    easy: 'Easy',
+    medium: 'Medium',
+    hard: 'Hard',
+    expert: 'Expert',
+    easyDescription: 'AI makes random moves, good for beginners',
+    mediumDescription: 'AI uses basic strategy, balanced gameplay',
+    hardDescription: 'AI is aggressive and strategic, challenging',
+    expertDescription: 'AI uses advanced tactics to trap players',
+    
     // Game history
     gameHistory: 'Game History',
     
@@ -163,6 +174,17 @@ const ja = {
     aiDescription: '高度なアルゴリズムで日本語の単語を学習したAIと対戦しましょう！',
     aiThinking: 'AIが考え中...',
     aiStatus: 'AIが単語を考えています...',
+    
+    // AI difficulty levels
+    aiDifficulty: 'AI難易度',
+    easy: '簡単',
+    medium: '普通',
+    hard: '難しい',
+    expert: '専門家',
+    easyDescription: 'AIはランダムな手を打ち、初心者には適しています',
+    mediumDescription: 'AIは基本的な戦略を使用し、バランスの取れたゲームプレイを提供します',
+    hardDescription: 'AIは攻撃的で戦略的で、挑戦的です',
+    expertDescription: 'AIはプレイヤーをトラップするために高度な戦術を使用します',
     
     // Game history
     gameHistory: 'ゲーム履歴',

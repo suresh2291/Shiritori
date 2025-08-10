@@ -109,12 +109,30 @@
 .game-header {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: space-between;
   margin-bottom: 30px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.difficulty-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.difficulty-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: capitalize;
 }
 
 .player-info {
@@ -798,5 +816,87 @@
 
   .player-indicator {
     min-width: auto;
+  }
+}
+
+.difficulty-selector {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.difficulty-selector label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.difficulty-options {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.difficulty-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  background: white;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 100px;
+  justify-content: center;
+}
+
+.difficulty-btn:hover {
+  border-color: #2196F3;
+  color: #2196F3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.15);
+}
+
+.difficulty-btn.active {
+  border-color: #2196F3;
+  background: #2196F3;
+  color: white;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.difficulty-btn.active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(33, 150, 243, 0.4);
+}
+
+.difficulty-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+  padding: 10px 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #2196F3;
+  text-align: left;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Responsive design for difficulty buttons */
+@media (max-width: 600px) {
+  .difficulty-options {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .difficulty-btn {
+    width: 200px;
   }
 }

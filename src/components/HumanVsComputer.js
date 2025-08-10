@@ -61,595 +61,242 @@ const HumanVsComputer = ({ onBack, onGameEnd }) => {
   const timerRef = useRef(null);
 
   // Enhanced Japanese words database with categories - wrapped in useMemo to prevent recreation
-
   const japaneseWords = useMemo(
     () => ({
       あ: [
-        "あめ",
-        "あか",
-        "あお",
-        "あたま",
-        "あし",
-        "あさ",
-        "あき",
-        "あつい",
-        "あまい",
-        "あたらしい",
+        "あめ", "あか", "あお", "あたま", "あし", "あさ", "あき", "あつい", "あまい", "あたらしい",
+        "あんしん", "あんぜん", "あんない", "あんき", "あんご", "あんざい", "あんてい", "あんぱい", "あんま", "あんゆう"
       ],
 
       い: [
-        "いぬ",
-        "いち",
-        "いえ",
-        "いす",
-        "いし",
-        "いと",
-        "いのち",
-        "いけ",
-        "いりぐち",
-        "いもうと",
+        "いぬ", "いち", "いえ", "いす", "いし", "いと", "いのち", "いけ", "いりぐち", "いもうと",
+        "いっしょ", "いっしょう", "いっしゅん", "いっそう", "いったい", "いってん", "いっぱい", "いっぽう", "いっまい", "いっりゅう"
       ],
 
       う: [
-        "うし",
-        "うま",
-        "うみ",
-        "うた",
-        "うで",
-        "うでわ",
-        "うるさい",
-        "うれしい",
-        "うまい",
-        "うつくしい",
+        "うし", "うま", "うみ", "うた", "うで", "うでわ", "うるさい", "うれしい", "うまい", "うつくしい",
+        "うんどう", "うんてん", "うんめい", "うんぱん", "うんゆ", "うんちん", "うんどうかい", "うんどうじょう", "うんどうぶ", "うんどうぐつ"
       ],
 
       え: [
-        "えほん",
-        "えんぴつ",
-        "えき",
-        "えだ",
-        "えん",
-        "えいご",
-        "えいが",
-        "えいゆう",
-        "えいきょう",
-        "えいせい",
+        "えほん", "えんぴつ", "えき", "えだ", "えん", "えいご", "えいが", "えいゆう", "えいきょう", "えいせい",
+        "えいきゅう", "えいきょう", "えいきょうかい", "えいきょうじょ", "えいきょうし", "えいきょうしつ", "えいきょうぶ", "えいきょうり", "えいきょうわ", "えいきょうん"
       ],
 
       お: [
-        "おと",
-        "おか",
-        "おに",
-        "おとこ",
-        "おんな",
-        "おとしより",
-        "おじいさん",
-        "おばあさん",
-        "おとうと",
-        "おねえさん",
+        "おと", "おか", "おに", "おとこ", "おんな", "おとしより", "おじいさん", "おばあさん", "おとうと", "おねえさん",
+        "おおきい", "おおぜい", "おおみず", "おおやま", "おおかみ", "おおくら", "おおさか", "おおとうりょう", "おおどおり", "おおはし"
       ],
 
       か: [
-        "かめ",
-        "かさ",
-        "かみ",
-        "かばん",
-        "かばん",
-        "かみなり",
-        "かぜ",
-        "かわ",
-        "かみ",
-        "かみ",
+        "かめ", "かさ", "かみ", "かばん", "かみなり", "かぜ", "かわ", "かみ", "かみ", "かみ",
+        "かんがえる", "かんじる", "かんしゃ", "かんどう", "かんぱい", "かんり", "かんせい", "かんりょう", "かんき", "かんご"
       ],
 
       き: [
-        "きつね",
-        "きもち",
-        "きいろ",
-        "きせつ",
-        "きょう",
-        "きのう",
-        "きょうしつ",
-        "きかい",
-        "きもち",
-        "きもち",
+        "きつね", "きもち", "きいろ", "きせつ", "きょう", "きのう", "きょうしつ", "きかい", "きもち", "きもち",
+        "きょうみ", "きょうし", "きょうしつ", "きょうかしょ", "きょうしつ", "きょうし", "きょうしつ", "きょうかしょ", "きょうしつ", "きょうし"
       ],
 
       く: [
-        "くま",
-        "くも",
-        "くつ",
-        "くち",
-        "くび",
-        "くつした",
-        "くもり",
-        "くろい",
-        "くび",
-        "くび",
+        "くま", "くも", "くつ", "くち", "くび", "くつした", "くもり", "くろい", "くび", "くび",
+        "くうき", "くうこう", "くうしゅう", "くうはく", "くうりょく", "くうかん", "くうしゅう", "くうはく", "くうりょく", "くうかん"
       ],
 
       け: [
-        "けん",
-        "けしき",
-        "けが",
-        "けんきゅう",
-        "けいけん",
-        "けいかく",
-        "けいじ",
-        "けいじ",
-        "けいじ",
-        "けいじ",
+        "けん", "けしき", "けが", "けんきゅう", "けいけん", "けいかく", "けいじ", "けいじ", "けいじ", "けいじ",
+        "けいざい", "けいさつ", "けいび", "けいじ", "けいざい", "けいさつ", "けいび", "けいじ", "けいざい", "けいさつ"
       ],
 
       こ: [
-        "こい",
-        "こま",
-        "こども",
-        "ことば",
-        "こころ",
-        "こくご",
-        "こくさい",
-        "こくみん",
-        "こころ",
-        "こころ",
+        "こい", "こま", "こども", "ことば", "こころ", "こくご", "こくさい", "こくみん", "こころ", "こころ",
+        "こうこう", "こうじょう", "こうつう", "こうえん", "こうじ", "こうえん", "こうつう", "こうえん", "こうじ", "こうえん"
       ],
 
       さ: [
-        "さくら",
-        "さかな",
-        "さくら",
-        "さくら",
-        "さくら",
-        "さくら",
-        "さくら",
-        "さくら",
-        "さくら",
-        "さくら",
+        "さくら", "さかな", "さくら", "さくら", "さくら", "さくら", "さくら", "さくら", "さくら", "さくら",
+        "さくらんぼ", "さくらんぼ", "さくらんぼ", "さくらんぼ", "さくらんぼ", "さくらんぼ", "さくらんぼ", "さくらんぼ", "さくらんぼ", "さくらんぼ"
       ],
 
       し: [
-        "しま",
-        "しんぶん",
-        "しま",
-        "しま",
-        "しま",
-        "しま",
-        "しま",
-        "しま",
-        "しま",
-        "しま",
+        "しま", "しんぶん", "しま", "しま", "しま", "しま", "しま", "しま", "しま", "しま",
+        "しんせい", "しんせい", "しんせい", "しんせい", "しんせい", "しんせい", "しんせい", "しんせい", "しんせい", "しんせい"
       ],
 
       す: [
-        "すいか",
-        "すいか",
-        "すいか",
-        "すいか",
-        "すいか",
-        "すいか",
-        "すいか",
-        "すいか",
-        "すいか",
-        "すいか",
+        "すいか", "すいか", "すいか", "すいか", "すいか", "すいか", "すいか", "すいか", "すいか", "すいか",
+        "すいえい", "すいえい", "すいえい", "すいえい", "すいえい", "すいえい", "すいえい", "すいえい", "すいえい", "すいえい"
       ],
 
       せ: [
-        "せんせい",
-        "せんせい",
-        "せんせい",
-        "せんせい",
-        "せんせい",
-        "せんせい",
-        "せんせい",
-        "せんせい",
-        "せんせい",
-        "せんせい",
+        "せんせい", "せんせい", "せんせい", "せんせい", "せんせい", "せんせい", "せんせい", "せんせい", "せんせい", "せんせい",
+        "せいかつ", "せいかつ", "せいかつ", "せいかつ", "せいかつ", "せいかつ", "せいかつ", "せいかつ", "せいかつ", "せいかつ"
       ],
 
       そ: [
-        "そら",
-        "そら",
-        "そら",
-        "そら",
-        "そら",
-        "そら",
-        "そら",
-        "そら",
-        "そら",
-        "そら",
+        "そら", "そら", "そら", "そら", "そら", "そら", "そら", "そら", "そら", "そら",
+        "そうじ", "そうじ", "そうじ", "そうじ", "そうじ", "そうじ", "そうじ", "そうじ", "そうじ", "そうじ"
       ],
 
       た: [
-        "たまご",
-        "たまご",
-        "たまご",
-        "たまご",
-        "たまご",
-        "たまご",
-        "たまご",
-        "たまご",
-        "たまご",
-        "たまご",
+        "たまご", "たまご", "たまご", "たまご", "たまご", "たまご", "たまご", "たまご", "たまご", "たまご",
+        "たべもの", "たべもの", "たべもの", "たべもの", "たべもの", "たべもの", "たべもの", "たべもの", "たべもの", "たべもの"
       ],
 
       ち: [
-        "ちょう",
-        "ちょう",
-        "ちょう",
-        "ちょう",
-        "ちょう",
-        "ちょう",
-        "ちょう",
-        "ちょう",
-        "ちょう",
-        "ちょう",
+        "ちょう", "ちょう", "ちょう", "ちょう", "ちょう", "ちょう", "ちょう", "ちょう", "ちょう", "ちょう",
+        "ちゅうごく", "ちゅうごく", "ちゅうごく", "ちゅうごく", "ちゅうごく", "ちゅうごく", "ちゅうごく", "ちゅうごく", "ちゅうごく", "ちゅうごく"
       ],
 
       つ: [
-        "つくえ",
-        "つばめ",
-        "つくえ",
-        "つくえ",
-        "つくえ",
-        "つくえ",
-        "つくえ",
-        "つくえ",
-        "つくえ",
-        "つくえ",
+        "つくえ", "つばめ", "つくえ", "つくえ", "つくえ", "つくえ", "つくえ", "つくえ", "つくえ", "つくえ",
+        "つづく", "つづく", "つづく", "つづく", "つづく", "つづく", "つづく", "つづく", "つづく", "つづく"
       ],
 
       て: ["て", "て", "て", "て", "て", "て", "て", "て", "て", "て"],
 
       と: [
-        "とり",
-        "とり",
-        "とり",
-        "とり",
-        "とり",
-        "とり",
-        "とり",
-        "とり",
-        "とり",
-        "とり",
+        "とり", "とり", "とり", "とり", "とり", "とり", "とり", "とり", "とり", "とり",
+        "とけい", "とけい", "とけい", "とけい", "とけい", "とけい", "とけい", "とけい", "とけい", "とけい"
       ],
 
       な: [
-        "なつ",
-        "なつ",
-        "なつ",
-        "なつ",
-        "なつ",
-        "なつ",
-        "なつ",
-        "なつ",
-        "なつ",
-        "なつ",
+        "なつ", "なつ", "なつ", "なつ", "なつ", "なつ", "なつ", "なつ", "なつ", "なつ",
+        "なつやすみ", "なつやすみ", "なつやすみ", "なつやすみ", "なつやすみ", "なつやすみ", "なつやすみ", "なつやすみ", "なつやすみ", "なつやすみ"
       ],
 
       に: [
-        "にほん",
-        "にほん",
-        "にほん",
-        "にほん",
-        "にほん",
-        "にほん",
-        "にほん",
-        "にほん",
-        "にほん",
-        "にほん",
+        "にほん", "にほん", "にほん", "にほん", "にほん", "にほん", "にほん", "にほん", "にほん", "にほん",
+        "にほんご", "にほんご", "にほんご", "にほんご", "にほんご", "にほんご", "にほんご", "にほんご", "にほんご", "にほんご"
       ],
 
       ぬ: [
-        "ぬりえ",
-        "ぬりえ",
-        "ぬりえ",
-        "ぬりえ",
-        "ぬりえ",
-        "ぬりえ",
-        "ぬりえ",
-        "ぬりえ",
-        "ぬりえ",
-        "ぬりえ",
+        "ぬりえ", "ぬりえ", "ぬりえ", "ぬりえ", "ぬりえ", "ぬりえ", "ぬりえ", "ぬりえ", "ぬりえ", "ぬりえ",
+        "ぬりえ", "ぬりえ", "ぬりえ", "ぬりえ", "ぬりえ", "ぬりえ", "ぬりえ", "ぬりえ", "ぬりえ", "ぬりえ"
       ],
 
       ね: [
-        "ねこ",
-        "ねこ",
-        "ねこ",
-        "ねこ",
-        "ねこ",
-        "ねこ",
-        "ねこ",
-        "ねこ",
-        "ねこ",
-        "ねこ",
+        "ねこ", "ねこ", "ねこ", "ねこ", "ねこ", "ねこ", "ねこ", "ねこ", "ねこ", "ねこ",
+        "ねこ", "ねこ", "ねこ", "ねこ", "ねこ", "ねこ", "ねこ", "ねこ", "ねこ", "ねこ"
       ],
 
       の: [
-        "のり",
-        "のり",
-        "のり",
-        "のり",
-        "のり",
-        "のり",
-        "のり",
-        "のり",
-        "のり",
-        "のり",
+        "のり", "のり", "のり", "のり", "のり", "のり", "のり", "のり", "のり", "のり",
+        "のり", "のり", "のり", "のり", "のり", "のり", "のり", "のり", "のり", "のり"
       ],
 
       は: [
-        "はな",
-        "はな",
-        "はな",
-        "はな",
-        "はな",
-        "はな",
-        "はな",
-        "はな",
-        "はな",
-        "はな",
+        "はな", "はな", "はな", "はな", "はな", "はな", "はな", "はな", "はな", "はな",
+        "はなび", "はなび", "はなび", "はなび", "はなび", "はなび", "はなび", "はなび", "はなび", "はなび"
       ],
 
       ひ: [
-        "ひこうき",
-        "ひこうき",
-        "ひこうき",
-        "ひこうき",
-        "ひこうき",
-        "ひこうき",
-        "ひこうき",
-        "ひこうき",
-        "ひこうき",
-        "ひこうき",
+        "ひこうき", "ひこうき", "ひこうき", "ひこうき", "ひこうき", "ひこうき", "ひこうき", "ひこうき", "ひこうき", "ひこうき",
+        "ひこうき", "ひこうき", "ひこうき", "ひこうき", "ひこうき", "ひこうき", "ひこうき", "ひこうき", "ひこうき", "ひこうき"
       ],
 
       ふ: [
-        "ふね",
-        "ふね",
-        "ふね",
-        "ふね",
-        "ふね",
-        "ふね",
-        "ふね",
-        "ふね",
-        "ふね",
-        "ふね",
+        "ふね", "ふね", "ふね", "ふね", "ふね", "ふね", "ふね", "ふね", "ふね", "ふね",
+        "ふね", "ふね", "ふね", "ふね", "ふね", "ふね", "ふね", "ふね", "ふね", "ふね"
       ],
 
       へ: [
-        "へや",
-        "へや",
-        "へや",
-        "へや",
-        "へや",
-        "へや",
-        "へや",
-        "へや",
-        "へや",
-        "へや",
+        "へや", "へや", "へや", "へや", "へや", "へや", "へや", "へや", "へや", "へや",
+        "へや", "へや", "へや", "へや", "へや", "へや", "へや", "へや", "へや", "へや"
       ],
 
       ほ: [
-        "ほん",
-        "ほん",
-        "ほん",
-        "ほん",
-        "ほん",
-        "ほん",
-        "ほん",
-        "ほん",
-        "ほん",
-        "ほん",
+        "ほん", "ほん", "ほん", "ほん", "ほん", "ほん", "ほん", "ほん", "ほん", "ほん",
+        "ほん", "ほん", "ほん", "ほん", "ほん", "ほん", "ほん", "ほん", "ほん", "ほん"
       ],
 
       ま: [
-        "まくら",
-        "まつり",
-        "まくら",
-        "まくら",
-        "まくら",
-        "まくら",
-        "まくら",
-        "まくら",
-        "まくら",
-        "まくら",
+        "まくら", "まつり", "まくら", "まくら", "まくら", "まくら", "まくら", "まくら", "まくら", "まくら",
+        "まくら", "まくら", "まくら", "まくら", "まくら", "まくら", "まくら", "まくら", "まくら", "まくら"
       ],
 
       み: [
-        "みず",
-        "みず",
-        "みず",
-        "みず",
-        "みず",
-        "みず",
-        "みず",
-        "みず",
-        "みず",
-        "みず",
+        "みず", "みず", "みず", "みず", "みず", "みず", "みず", "みず", "みず", "みず",
+        "みず", "みず", "みず", "みず", "みず", "みず", "みず", "みず", "みず", "みず"
       ],
 
       む: [
-        "むし",
-        "むし",
-        "むし",
-        "むし",
-        "むし",
-        "むし",
-        "むし",
-        "むし",
-        "むし",
-        "むし",
+        "むし", "むし", "むし", "むし", "むし", "むし", "むし", "むし", "むし", "むし",
+        "むし", "むし", "むし", "むし", "むし", "むし", "むし", "むし", "むし", "むし"
       ],
 
       め: [
-        "めがね",
-        "めだか",
-        "めがね",
-        "めがね",
-        "めがね",
-        "めがね",
-        "めがね",
-        "めがね",
-        "めがね",
-        "めがね",
+        "めがね", "めだか", "めがね", "めがね", "めがね", "めがね", "めがね", "めがね", "めがね", "めがね",
+        "めがね", "めがね", "めがね", "めがね", "めがね", "めがね", "めがね", "めがね", "めがね", "めがね"
       ],
 
       も: [
-        "もも",
-        "もも",
-        "もも",
-        "もも",
-        "もも",
-        "もも",
-        "もも",
-        "もも",
-        "もも",
-        "もも",
+        "もも", "もも", "もも", "もも", "もも", "もも", "もも", "もも", "もも", "もも",
+        "もも", "もも", "もも", "もも", "もも", "もも", "もも", "もも", "もも", "もも"
       ],
 
       や: [
-        "やま",
-        "やま",
-        "やま",
-        "やま",
-        "やま",
-        "やま",
-        "やま",
-        "やま",
-        "やま",
-        "やま",
+        "やま", "やま", "やま", "やま", "やま", "やま", "やま", "やま", "やま", "やま",
+        "やま", "やま", "やま", "やま", "やま", "やま", "やま", "やま", "やま", "やま"
       ],
 
       ゆ: [
-        "ゆき",
-        "ゆき",
-        "ゆき",
-        "ゆき",
-        "ゆき",
-        "ゆき",
-        "ゆき",
-        "ゆき",
-        "ゆき",
-        "ゆき",
+        "ゆき", "ゆき", "ゆき", "ゆき", "ゆき", "ゆき", "ゆき", "ゆき", "ゆき", "ゆき",
+        "ゆき", "ゆき", "ゆき", "ゆき", "ゆき", "ゆき", "ゆき", "ゆき", "ゆき", "ゆき"
       ],
 
       よ: [
-        "よる",
-        "よる",
-        "よる",
-        "よる",
-        "よる",
-        "よる",
-        "よる",
-        "よる",
-        "よる",
-        "よる",
+        "よる", "よる", "よる", "よる", "よる", "よる", "よる", "よる", "よる", "よる",
+        "よる", "よる", "よる", "よる", "よる", "よる", "よる", "よる", "よる", "よる"
       ],
 
       ら: [
-        "らっこ",
-        "らくだ",
-        "らっこ",
-        "らっこ",
-        "らっこ",
-        "らっこ",
-        "らっこ",
-        "らっこ",
-        "らっこ",
-        "らっこ",
+        "らっこ", "らくだ", "らっこ", "らっこ", "らっこ", "らっこ", "らっこ", "らっこ", "らっこ", "らっこ",
+        "らっこ", "らっこ", "らっこ", "らっこ", "らっこ", "らっこ", "らっこ", "らっこ", "らっこ", "らっこ"
       ],
 
       り: [
-        "りす",
-        "りんご",
-        "りす",
-        "りす",
-        "りす",
-        "りす",
-        "りす",
-        "りす",
-        "りす",
-        "りす",
+        "りす", "りんご", "りす", "りす", "りす", "りす", "りす", "りす", "りす", "りす",
+        "りす", "りす", "りす", "りす", "りす", "りす", "りす", "りす", "りす", "りす"
       ],
 
       る: [
-        "るす",
-        "るす",
-        "るす",
-        "るす",
-        "るす",
-        "るす",
-        "るす",
-        "るす",
-        "るす",
-        "るす",
+        "るす", "るす", "るす", "るす", "るす", "るす", "るす", "るす", "るす", "るす",
+        "るす", "るす", "るす", "るす", "るす", "るす", "るす", "るす", "るす", "るす"
       ],
 
       れ: [
-        "れいぞうこ",
-        "れいぞうこ",
-        "れいぞうこ",
-        "れいぞうこ",
-        "れいぞうこ",
-        "れいぞうこ",
-        "れいぞうこ",
-        "れいぞうこ",
-        "れいぞうこ",
-        "れいぞうこ",
+        "れいぞうこ", "れいぞうこ", "れいぞうこ", "れいぞうこ", "れいぞうこ", "れいぞうこ", "れいぞうこ", "れいぞうこ", "れいぞうこ", "れいぞうこ",
+        "れいぞうこ", "れいぞうこ", "れいぞうこ", "れいぞうこ", "れいぞうこ", "れいぞうこ", "れいぞうこ", "れいぞうこ", "れいぞうこ", "れいぞうこ"
       ],
 
       ろ: [
-        "ろうそく",
-        "ろうそく",
-        "ろうそく",
-        "ろうそく",
-        "ろうそく",
-        "ろうそく",
-        "ろうそく",
-        "ろうそく",
-        "ろうそく",
-        "ろうそく",
+        "ろうそく", "ろうそく", "ろうそく", "ろうそく", "ろうそく", "ろうそく", "ろうそく", "ろうそく", "ろうそく", "ろうそく",
+        "ろうそく", "ろうそく", "ろうそく", "ろうそく", "ろうそく", "ろうそく", "ろうそく", "ろうそく", "ろうそく", "ろうそく"
       ],
 
       わ: [
-        "わに",
-        "わに",
-        "わに",
-        "わに",
-        "わに",
-        "わに",
-        "わに",
-        "わに",
-        "わに",
-        "わに",
+        "わに", "わに", "わに", "わに", "わに", "わに", "わに", "わに", "わに", "わに",
+        "わに", "わに", "わに", "わに", "わに", "わに", "わに", "わに", "わに", "わに"
       ],
 
       を: ["を", "を", "を", "を", "を", "を", "を", "を", "を", "を"],
 
       ん: [
-        "んち",
-        "んち",
-        "んち",
-        "んち",
-        "んち",
-        "んち",
-        "んち",
-        "んち",
-        "んち",
-        "んち",
+        "んち", "んち", "んち", "んち", "んち", "んち", "んち", "んち", "んち", "んち",
+        "んち", "んち", "んち", "んち", "んち", "んち", "んち", "んち", "んち", "んち"
       ],
     }),
     []
   );
 
-  // Define functions first before using them in useEffect
+  // Enhanced AI difficulty levels
+  const [aiDifficulty, setAiDifficulty] = useState('hard'); // 'easy', 'medium', 'hard', 'expert'
 
+  // Define functions first before using them in useEffect
   const showMessage = useCallback((msg, type) => {
     setMessage(msg);
-
     setMessageType(type);
-
     setTimeout(() => setMessage(""), 3000);
   }, []);
 
@@ -674,28 +321,51 @@ const HumanVsComputer = ({ onBack, onGameEnd }) => {
     onGameEnd(result);
   }, [playerName, usedWords.length, onGameEnd, t, gameHistory]);
 
+  // Advanced word selection strategies
   const getComputerWord = useCallback(() => {
     console.log("getComputerWord called with:", {
       lastWord,
       usedWords: usedWords.length,
+      difficulty: aiDifficulty,
     });
 
     if (!lastWord) {
-      // First word - choose a random word that doesn't end with 'ん'
-
+      // First word - choose strategically based on difficulty
       const firstLetters = Object.keys(japaneseWords).filter(
         (letter) => letter !== "ん"
       );
 
-      const randomLetter =
-        firstLetters[Math.floor(Math.random() * firstLetters.length)];
+      let selectedLetter;
+      
+      if (aiDifficulty === 'expert') {
+        // Expert: Choose letters that have many long words
+        const letterScores = firstLetters.map(letter => ({
+          letter,
+          score: japaneseWords[letter].filter(word => !word.endsWith("ん")).length * 2 +
+                 japaneseWords[letter].filter(word => word.length >= 4).length * 3
+        }));
+        letterScores.sort((a, b) => b.score - a.score);
+        selectedLetter = letterScores[0].letter;
+      } else if (aiDifficulty === 'hard') {
+        // Hard: Choose letters with many available words
+        const letterScores = firstLetters.map(letter => ({
+          letter,
+          score: japaneseWords[letter].filter(word => !word.endsWith("ん")).length
+        }));
+        letterScores.sort((a, b) => b.score - a.score);
+        selectedLetter = letterScores[Math.floor(Math.random() * Math.min(3, letterScores.length))].letter;
+      } else {
+        // Easy/Medium: Random selection
+        selectedLetter = firstLetters[Math.floor(Math.random() * firstLetters.length)];
+      }
 
-      const availableWords = japaneseWords[randomLetter].filter(
+      const availableWords = japaneseWords[selectedLetter].filter(
         (word) => !usedWords.includes(word) && !word.endsWith("ん")
       );
 
       console.log("First word selection:", {
-        randomLetter,
+        selectedLetter,
+        difficulty: aiDifficulty,
         availableWords: availableWords.length,
       });
 
@@ -703,160 +373,143 @@ const HumanVsComputer = ({ onBack, onGameEnd }) => {
     }
 
     // Get the last character of the previous word
-
     const lastChar = lastWord[lastWord.length - 1];
-
     console.log("Last character of previous word:", lastChar);
 
     // Use the utility function to get the target character
-
     const targetChar = getTargetCharacter(lastChar);
-
     console.log("Target character for next word:", targetChar);
 
-    console.log(
-      "Available characters in japaneseWords:",
-      Object.keys(japaneseWords)
-    );
+    // Enhanced word finding with multiple strategies
+    let availableWords = [];
+    let strategyUsed = '';
 
-    console.log(
-      "Does targetChar exist in japaneseWords?",
-      !!japaneseWords[targetChar]
-    );
+    // Strategy 1: Direct target character match
+    availableWords = japaneseWords[targetChar]?.filter(
+      (word) => !usedWords.includes(word) && !word.endsWith("ん")
+    ) || [];
+    strategyUsed = 'direct';
 
-    // First try to find words starting with the target character
-
-    let availableWords =
-      japaneseWords[targetChar]?.filter(
+    // Strategy 2: If no words found, try original character
+    if (availableWords.length === 0 && targetChar !== lastChar) {
+      availableWords = japaneseWords[lastChar]?.filter(
         (word) => !usedWords.includes(word) && !word.endsWith("ん")
       ) || [];
-
-    console.log(
-      "Available words for target char",
-      targetChar,
-      ":",
-      availableWords.length
-    );
-
-    if (japaneseWords[targetChar]) {
-      console.log(
-        "All words for target char",
-        targetChar,
-        ":",
-        japaneseWords[targetChar]
-      );
-
-      console.log("Used words:", usedWords);
-
-      console.log(
-        "Words ending with ん:",
-        japaneseWords[targetChar].filter((word) => word.endsWith("ん"))
-      );
+      strategyUsed = 'fallback';
     }
 
-    // If no words found with target char, try the original character as fallback
-
-    if (availableWords.length === 0 && targetChar !== lastChar) {
-      console.log(
-        "No words found for target char, trying original char:",
-        lastChar
-      );
-
-      availableWords =
-        japaneseWords[lastChar]?.filter(
-          (word) => !usedWords.includes(word) && !word.endsWith("ん")
-        ) || [];
-
-      console.log(
-        "Available words for original char",
-        lastChar,
-        ":",
-        availableWords.length
-      );
-    }
-
-    // If still no words found, try to find any word that starts with a character that matches the last character
-
+    // Strategy 3: Find any matching character using advanced matching
     if (availableWords.length === 0) {
-      console.log("Trying to find any matching character...");
-
       for (const [char, words] of Object.entries(japaneseWords)) {
         if (charactersMatch(lastChar, char)) {
           const matchingWords = words.filter(
             (word) => !usedWords.includes(word) && !word.endsWith("ん")
           );
-
           if (matchingWords.length > 0) {
-            console.log(
-              "Found matching character:",
-              char,
-              "with",
-              matchingWords.length,
-              "words"
-            );
-
             availableWords = matchingWords;
-
+            strategyUsed = 'advanced_matching';
             break;
           }
         }
       }
     }
 
-    // Final validation: ensure we actually have valid words
-
-    if (availableWords.length > 0) {
-      // Double-check that at least one word actually follows Shiritori rules
-
-      const validWords = availableWords.filter((word) => {
-        if (!lastWord) return true; // First word is always valid
-
-        const lastChar = lastWord[lastWord.length - 1];
-
-        const firstChar = word[0];
-
-        return charactersMatch(lastChar, firstChar);
-      });
-
-      if (validWords.length === 0) {
-        console.log("No valid words found after final validation");
-
-        return null; // Computer can't find a valid word
+    // Strategy 4: Desperate search - find any word that could work
+    if (availableWords.length === 0 && aiDifficulty === 'expert') {
+      for (const [char, words] of Object.entries(japaneseWords)) {
+        const potentialWords = words.filter(
+          (word) => !usedWords.includes(word) && !word.endsWith("ん")
+        );
+        if (potentialWords.length > 0) {
+          // Check if any word could potentially create a chain
+          const validWords = potentialWords.filter(word => {
+            // Look ahead: does this word lead to more possibilities?
+            const nextChar = word[word.length - 1];
+            const nextWords = japaneseWords[nextChar]?.filter(
+              w => !usedWords.includes(w) && !w.endsWith("ん")
+            ) || [];
+            return nextWords.length > 0;
+          });
+          if (validWords.length > 0) {
+            availableWords = validWords;
+            strategyUsed = 'desperate_search';
+            break;
+          }
+        }
       }
-
-      availableWords = validWords;
-
-      console.log("Final valid words count:", availableWords.length);
     }
+
+    console.log("Word finding strategy:", strategyUsed, "Found words:", availableWords.length);
 
     if (availableWords.length === 0) {
       console.log("No available words found, computer loses");
-
-      return null; // Computer can't find a word, human wins
+      return null;
     }
 
-    // AI strategy: prefer longer words and avoid words ending with 'ん'
+    // Enhanced word selection based on difficulty and strategy
+    let selectedWord = null;
 
-    const goodWords = availableWords.filter((word) => !word.endsWith("ん"));
-
-    const wordsToChooseFrom = goodWords.length > 0 ? goodWords : availableWords;
-
-    // Sort by length (prefer longer words) and add some randomness
-
-    wordsToChooseFrom.sort((a, b) => b.length - a.length);
-
-    // Add some randomness to make it less predictable
-
-    if (Math.random() < 0.3 && wordsToChooseFrom.length > 1) {
-      const randomIndex = Math.floor(
-        Math.random() * Math.min(3, wordsToChooseFrom.length)
-      );
-
-      return wordsToChooseFrom[randomIndex];
+    if (aiDifficulty === 'expert') {
+      // Expert: Maximum aggression - prefer words that limit human options
+      const wordScores = availableWords.map(word => {
+        let score = word.length * 2; // Prefer longer words
+        
+        // Bonus for words ending with characters that have few available words
+        const nextChar = word[word.length - 1];
+        const nextWords = japaneseWords[nextChar]?.filter(
+          w => !usedWords.includes(w) && !w.endsWith("ん")
+        ) || [];
+        
+        if (nextWords.length <= 3) score += 10; // Trap words
+        if (nextWords.length <= 1) score += 20; // Dead end words
+        
+        // Bonus for words that create difficult chains
+        if (nextChar === 'ん') score -= 100; // Avoid 'ん' endings
+        
+        return { word, score };
+      });
+      
+      wordScores.sort((a, b) => b.score - a.score);
+      selectedWord = wordScores[0].word;
+      
+    } else if (aiDifficulty === 'hard') {
+      // Hard: Aggressive but not perfect
+      const goodWords = availableWords.filter(word => !word.endsWith("ん"));
+      const wordsToChooseFrom = goodWords.length > 0 ? goodWords : availableWords;
+      
+      // Sort by length and add some randomness
+      wordsToChooseFrom.sort((a, b) => b.length - a.length);
+      
+      if (Math.random() < 0.4 && wordsToChooseFrom.length > 1) {
+        const randomIndex = Math.floor(Math.random() * Math.min(3, wordsToChooseFrom.length));
+        selectedWord = wordsToChooseFrom[randomIndex];
+      } else {
+        selectedWord = wordsToChooseFrom[0];
+      }
+      
+    } else if (aiDifficulty === 'medium') {
+      // Medium: Balanced approach
+      const goodWords = availableWords.filter(word => !word.endsWith("ん"));
+      const wordsToChooseFrom = goodWords.length > 0 ? goodWords : availableWords;
+      
+      wordsToChooseFrom.sort((a, b) => b.length - a.length);
+      
+      if (Math.random() < 0.5 && wordsToChooseFrom.length > 1) {
+        const randomIndex = Math.floor(Math.random() * Math.min(5, wordsToChooseFrom.length));
+        selectedWord = wordsToChooseFrom[randomIndex];
+      } else {
+        selectedWord = wordsToChooseFrom[0];
+      }
+      
+    } else {
+      // Easy: More random, less strategic
+      const randomIndex = Math.floor(Math.random() * availableWords.length);
+      selectedWord = availableWords[randomIndex];
     }
 
-    return wordsToChooseFrom[0];
-  }, [usedWords, lastWord, japaneseWords]);
+    console.log("Selected word:", selectedWord, "Strategy:", strategyUsed, "Difficulty:", aiDifficulty);
+    return selectedWord;
+  }, [usedWords, lastWord, japaneseWords, aiDifficulty]);
 
   const handleTimeUp = useCallback(() => {
     console.log("Time up! Human loses");
@@ -1162,6 +815,46 @@ const HumanVsComputer = ({ onBack, onGameEnd }) => {
             />
           </div>
 
+          <div className="difficulty-selector">
+            <label htmlFor="difficulty">{t("aiDifficulty")}</label>
+            <div className="difficulty-options">
+              <button
+                className={`difficulty-btn ${aiDifficulty === 'easy' ? 'active' : ''}`}
+                onClick={() => setAiDifficulty('easy')}
+              >
+                <Brain size={16} />
+                {t("easy")}
+              </button>
+              <button
+                className={`difficulty-btn ${aiDifficulty === 'medium' ? 'active' : ''}`}
+                onClick={() => setAiDifficulty('medium')}
+              >
+                <Brain size={16} />
+                {t("medium")}
+              </button>
+              <button
+                className={`difficulty-btn ${aiDifficulty === 'hard' ? 'active' : ''}`}
+                onClick={() => setAiDifficulty('hard')}
+              >
+                <Brain size={16} />
+                {t("hard")}
+              </button>
+              <button
+                className={`difficulty-btn ${aiDifficulty === 'expert' ? 'active' : ''}`}
+                onClick={() => setAiDifficulty('expert')}
+              >
+                <Brain size={16} />
+                {t("expert")}
+              </button>
+            </div>
+            <p className="difficulty-description">
+              {aiDifficulty === 'easy' && t("easyDescription")}
+              {aiDifficulty === 'medium' && t("mediumDescription")}
+              {aiDifficulty === 'hard' && t("hardDescription")}
+              {aiDifficulty === 'expert' && t("expertDescription")}
+            </p>
+          </div>
+
           <motion.button
             className="start-game-btn"
             onClick={startGame}
@@ -1262,6 +955,11 @@ const HumanVsComputer = ({ onBack, onGameEnd }) => {
         </button>
 
         <h2>{t("humanVsComputer")}</h2>
+        
+        <div className="difficulty-indicator">
+          <Brain size={16} />
+          <span className="difficulty-text">{t(aiDifficulty)}</span>
+        </div>
       </div>
 
       <div className="game-info">
