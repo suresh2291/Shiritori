@@ -83,7 +83,7 @@ const HumanVsHuman = ({ onBack, onGameEnd }) => {
 
   const startGame = () => {
     if (!player1Name.trim() || !player2Name.trim()) {
-      showMessage(t('enterBothPlayerNames'), 'error');
+      showMessage(t('enter Both Player Names'), 'error');
       return;
     }
 
@@ -101,7 +101,7 @@ const HumanVsHuman = ({ onBack, onGameEnd }) => {
     const word = currentWord.trim();
     
     if (!word) {
-      showMessage(t('pleaseEnterWord'), 'error');
+      showMessage(t('please Enter Word'), 'error');
       return;
     }
 
@@ -198,7 +198,7 @@ const HumanVsHuman = ({ onBack, onGameEnd }) => {
               type="text"
               value={player1Name}
               onChange={(e) => setPlayer1Name(e.target.value)}
-              placeholder={t('enterPlayer1Name')}
+              placeholder={t('enter Player1 Name')}
               className="player-name-input"
             />
           </div>
@@ -210,7 +210,7 @@ const HumanVsHuman = ({ onBack, onGameEnd }) => {
               type="text"
               value={player2Name}
               onChange={(e) => setPlayer2Name(e.target.value)}
-              placeholder={t('enterPlayer2Name')}
+              placeholder={t('enter Player2 Name')}
               className="player-name-input"
             />
           </div>

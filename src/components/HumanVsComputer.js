@@ -1157,7 +1157,7 @@ const HumanVsComputer = ({ onBack, onGameEnd }) => {
               type="text"
               value={playerName}
               onChange={(e) => setPlayerName(e.target.value)}
-              placeholder={t("enterPlayerName")}
+              placeholder={t("enter Player Name")}
               className="player-name-input"
             />
           </div>
