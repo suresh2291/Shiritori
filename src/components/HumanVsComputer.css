@@ -900,3 +900,60 @@
     width: 200px;
   }
 }
+
+/* Mobile-specific input fixes */
+@media (max-width: 768px) {
+  .word-input {
+    background: rgba(0, 0, 0, 0.3) !important;
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+    -webkit-appearance: none;
+    border-radius: 12px;
+  }
+  
+  .word-input:focus {
+    background: rgba(0, 0, 0, 0.4) !important;
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+  }
+  
+  .player-input input {
+    background: rgba(0, 0, 0, 0.3) !important;
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+    -webkit-appearance: none;
+  }
+  
+  .player-input input:focus {
+    background: rgba(0, 0, 0, 0.4) !important;
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .word-input {
+    background: rgba(0, 0, 0, 0.4) !important;
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .player-input input {
+    background: rgba(0, 0, 0, 0.4) !important;
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
+
+/* Webkit-specific input styling for mobile */
+.word-input {
+  -webkit-appearance: none;
+  -webkit-border-radius: 12px;
+}
+
+.player-input input {
+  -webkit-appearance: none;
+  -webkit-border-radius: 25px;
+}
